@@ -1,0 +1,204 @@
+@import "tailwindcss";
+
+/* ── Custom theme tokens ───────────────────────────────── */
+@theme {
+  --color-cream: #FAFAF7;
+  --color-cream-dark: #F0EFE8;
+  --color-ink: #1A1A1A;
+  --color-ink-light: #3D3D3D;
+  --color-ink-muted: #6B6B6B;
+  --color-ink-faint: #9A9A9A;
+  --color-amber: #D4A853;
+  --color-amber-dark: #B8912E;
+  --color-amber-light: #F0DDA8;
+  --color-amber-faint: #FAF3E0;
+  --color-blue-ink: #2C3E6B;
+  --color-blue-ink-light: #4A6FA5;
+  --color-border: #E5E3DC;
+  --color-border-dark: #D0CEC5;
+  --color-shadow-warm: rgba(180, 160, 120, 0.08);
+  --color-shadow-warm-lg: rgba(180, 160, 120, 0.15);
+
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: 'DM Sans', 'Segoe UI', system-ui, sans-serif;
+
+  --animate-fade-in: fade-in 0.6s ease-out both;
+  --animate-fade-in-up: fade-in-up 0.6s ease-out both;
+  --animate-slide-in: slide-in 0.4s ease-out both;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ── Base styles ───────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  line-height: 1.7;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+::selection {
+  background-color: var(--color-amber-light);
+  color: var(--color-ink);
+}
+
+/* ── Scrollbar ─────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-dark);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ink-faint);
+}
+
+/* ── Markdown rendered content ─────────────────────────── */
+.prose-editorial {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  line-height: 1.85;
+  color: var(--color-ink-light);
+}
+
+.prose-editorial h1,
+.prose-editorial h2,
+.prose-editorial h3,
+.prose-editorial h4 {
+  font-family: var(--font-serif);
+  color: var(--color-ink);
+  margin-top: 2.5em;
+  margin-bottom: 0.75em;
+}
+
+.prose-editorial h1 { font-size: 2.25rem; }
+.prose-editorial h2 { font-size: 1.75rem; }
+.prose-editorial h3 { font-size: 1.375rem; }
+
+.prose-editorial p {
+  margin-bottom: 1.5em;
+}
+
+.prose-editorial a {
+  color: var(--color-blue-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.prose-editorial a:hover {
+  color: var(--color-amber-dark);
+}
+
+.prose-editorial blockquote {
+  border-left: 3px solid var(--color-amber);
+  margin: 2em 0;
+  padding: 0.75em 1.5em;
+  background: var(--color-amber-faint);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: var(--color-ink-muted);
+}
+
+.prose-editorial code {
+  background: var(--color-cream-dark);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+.prose-editorial pre {
+  background: var(--color-ink);
+  color: #e0e0e0;
+  padding: 1.25em 1.5em;
+  border-radius: 10px;
+  overflow-x: auto;
+  margin: 2em 0;
+  line-height: 1.6;
+}
+
+.prose-editorial pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.prose-editorial ul,
+.prose-editorial ol {
+  margin: 1.25em 0;
+  padding-left: 1.5em;
+}
+
+.prose-editorial li {
+  margin-bottom: 0.5em;
+}
+
+.prose-editorial img {
+  border-radius: 10px;
+  margin: 2em 0;
+  max-width: 100%;
+}
+
+.prose-editorial hr {
+  border: none;
+  height: 1px;
+  background: var(--color-border);
+  margin: 3em 0;
+}
+
+.prose-editorial table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2em 0;
+}
+
+.prose-editorial th,
+.prose-editorial td {
+  border: 1px solid var(--color-border);
+  padding: 0.75em 1em;
+  text-align: left;
+}
+
+.prose-editorial th {
+  background: var(--color-cream-dark);
+  font-weight: 600;
+}
